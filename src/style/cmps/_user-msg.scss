@@ -1,0 +1,33 @@
+.msg {
+    color: rgb(211, 211, 211);
+    padding: 10px;
+    font-size: 1.4em;
+    position: absolute;
+    z-index: 50;
+    top: 30%;
+    left: 50%;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.msg-success {
+    color: #4d4d4d;
+}
+
+.msg-error {
+    color: rgb(180, 3, 3);
+}
+
+.slide-fade-enter-active {
+    transition: all .3s ease;
+}
+
+.slide-fade-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+    transform: translateY(-100px);
+    opacity: 0;
+}

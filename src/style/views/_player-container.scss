@@ -1,0 +1,12 @@
+.player-container {
+    z-index: 18;
+    position: fixed;
+    grid-row: 3/4;
+    grid-column: 1/-1;
+    bottom: 0;
+    height: 114px;
+    width: 100%;
+    grid-template-columns: 122px 1fr;
+    grid-template-rows: 23px 40px 1fr;
+    display: grid;
+}

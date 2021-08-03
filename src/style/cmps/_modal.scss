@@ -1,0 +1,90 @@
+.modal {
+    position: absolute;
+    height: 180px;
+    width: 30%;
+    padding: 20px;
+    left: 50%;
+    top: 50%;
+    z-index: 1001;
+    transform: translate(-50%, -50%);
+    background-color: $clr4;
+    display: grid;
+    grid-template-columns: 30px 1fr 30px;
+    grid-template-rows: 30px 1fr 50px;
+    * {
+        color: white;
+    }
+    .msg-text {
+        // margin-top: 20px;
+        grid-column: 2;
+        grid-row: 2/3;
+        word-wrap: break-word;
+    }
+    .btn-close {
+        // position: absolute;
+        // right: 10px;
+        // align-self: flex-end;
+        grid-column: 3;
+        grid-row: 1/2;
+        border: 0.5px solid;
+        border-radius: 50%;
+        outline: none;
+        background-color: transparent;
+        font-size: 1.1rem;
+        &:hover {
+            color: gold;
+        }
+    }
+    .btns-container {
+        grid-column: 2;
+        grid-row: 3;
+        display: flex;
+        justify-content: space-between;
+        .btn-cancel {
+            font-size: 1.1rem;
+            // padding: 5px;
+            background-color: $clr1;
+            width: 70px;
+            border: 0.5px solid;
+            &:hover {
+                color: gold;
+            }
+        }
+        .btn-ok {
+            font-size: 1.1rem;
+            // padding: 5px;
+            background-color: $clr1;
+            width: 70px;
+            border: 0.5px solid;
+            &:hover {
+                border: 0.5px solid red;
+                color: gold;
+            }
+        }
+    }
+}
+
+@include for-wide-layout {
+    .modal {
+        width: 40%;
+    }
+}
+
+@include for-normal-layout {
+    .modal {
+        width: 60%;
+    }
+}
+
+@include for-narrow-layout {
+    .modal {
+        width: 70%;
+    }
+}
+
+@include for-mobile-layout {
+    .modal {
+        width: 90%;
+        // top: 140px;
+    }
+}

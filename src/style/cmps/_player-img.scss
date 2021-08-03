@@ -1,0 +1,15 @@
+.player-img {
+    position: relative;
+    grid-row: 2/-1;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 19;
+    object-fit: cover;
+    background-color: darken($clr1, 10%);
+    cursor: pointer;
+    img {
+        height: 100%;
+    }
+}

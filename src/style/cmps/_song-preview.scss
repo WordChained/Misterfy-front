@@ -1,0 +1,97 @@
+.song-preview {
+    position: relative;
+    width: 100%;
+    height: 51px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 5fr 15% 5% 1fr;
+    justify-content: space-around;
+    align-items: center;
+    background-color: darken($clr1, 6%);
+    justify-items: center;
+    padding: 3px 0 3px;
+    .thumbnail {
+        object-fit: cover;
+        object-position: center;
+        border-radius: 10px;
+        height: 45px;
+        width: 45px;
+    }
+    .song-title {
+        width: 100%;
+        max-width: 450px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        justify-self: flex-start;
+    }
+    .song-preview-play-btn,
+    .song-preview-pause-btn {
+        cursor: pointer;
+        filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(183deg) brightness(106%) contrast(102%);
+        &:hover {
+            fill: gold;
+        }
+    }
+    &:hover {
+        background-color: $clr2;
+    }
+    button {
+        background-color: transparent;
+        border: none;
+        outline: none;
+    }
+    .like-song {
+        background-color: transparent;
+        border: none;
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(49deg) brightness(103%) contrast(103%);
+        &:hover {
+            font-size: 1.1rem;
+        }
+    }
+    .liked {
+        // border: none;
+        background-color: transparent;
+        width: 20px;
+    }
+    .song-preview-remove-btn {
+        position: absolute;
+        right: 5.5%;
+        // z-index: 100;
+        top: 30%;
+        cursor: pointer;
+        fill: white;
+        &:hover {
+            fill: red;
+        }
+    }
+    .slide-in-enter-active,
+    .slide-in-leave-active {
+        transition: all 0.2s linear;
+        transform: translateX(100px);
+    }
+    .details-btn {
+        transform: rotate(90deg);
+        height: 30px;
+        transition: transform 0.2s linear;
+        filter: invert(100%) sepia(0%) saturate(17%) hue-rotate(346deg) brightness(105%) contrast(100%);
+        &:hover {
+            cursor: pointer;
+            filter: invert(83%) sepia(24%) saturate(3266%) hue-rotate(358deg) brightness(104%) contrast(107%);
+        }
+    }
+    .details-btn.removing {
+        transition: transform 0.2s linear;
+        transform: translateX(-2vw) rotate(90deg);
+    }
+}
+
+.ghost {
+    border: gold 1px solid;
+    opacity: 1;
+}
+
+@include for-narrow-layout {
+    .station-details .songs-list-container .songs-list {
+        font-size: 0.9rem;
+    }
+}

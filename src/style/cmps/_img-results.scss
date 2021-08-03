@@ -1,0 +1,39 @@
+.img-results {
+    position: absolute;
+    line-height: 0;
+    column-count: 4;
+    column-gap: 0;
+    gap: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 700px;
+    background-color: $clr4;
+    border-radius: 5px;
+    border: white solid 1px;
+    cursor: pointer;
+    button {
+        color: white;
+        background: $clr4;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .unsplash-img-preview-container {
+        display: inline-block;
+        .unsplash-img-preview {
+            columns: auto;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+@include for-narrow-layout {
+    .img-results {
+        column-count: 3;
+        height: 500px;
+        width: 300px;
+    }
+}

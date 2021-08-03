@@ -1,0 +1,75 @@
+.songs-list-container {
+    grid-row: 3/-1;
+    display: flex;
+    flex-direction: column;
+    padding-right: 10px;
+    .song-draggable {
+        cursor: grab;
+    }
+    .songs-list {
+        overflow-x: hidden;
+        display: flex;
+        list-style: none;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+        overflow-y: auto;
+        height: 35vh;
+        margin-top: 10px;
+        &::-webkit-scrollbar {
+            width: 10px;
+            border-radius: 10px;
+        }
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: darken($clr1, 5%);
+        }
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: lighten($clr4, 20%);
+        }
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: lighten($clr4, 15%);
+        }
+        li {
+            display: flex;
+            height: 55px;
+            align-items: center;
+            padding-bottom: 2px;
+        }
+    }
+}
+
+.song-list-search {
+    width: 0%;
+    transition: width 1.2s;
+    &.open {
+        transition: width 1.2s;
+        width: 100%;
+        grid-column: 1/-1;
+        height: 60px;
+        grid-row: 2/3;
+        margin-bottom: 0;
+        input {
+            width: 100%;
+            height: 45px;
+            font-size: 1.1rem;
+            padding: 0 7px 0 7px;
+            outline: none;
+            border: none;
+        }
+    }
+}
+
+@include for-narrow-layout {
+    .songs-list {
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none; //IE and Edge
+        --scrollbar-width: none; //Firefox
+        // Hide scrollbar for Chrome, Safari and Opera /
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}

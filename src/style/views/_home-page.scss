@@ -1,0 +1,203 @@
+.home-page {
+    // position: relative;
+    grid-column: 1/-1;
+    .hero-img {
+        top: 0;
+        grid-column: 1/-1;
+        grid-row: 1;
+        position: fixed;
+        overflow: hidden;
+        img {
+            top: 0;
+            width: 100vw;
+            object-fit: cover;
+        }
+    }
+    .hero-txt {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        font-size: 5rem;
+        top: 25%;
+        left: 15%;
+        transform: translate(-25%, -25%);
+        z-index: 1;
+        color: white;
+        font-family: despairs;
+    }
+    .scroll-down {
+        position: fixed;
+        display: flex;
+        align-self: stretch;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 200px;
+        width: 200px;
+        z-index: 9;
+        cursor: pointer;
+    }
+}
+
+.station-main {
+    display: grid;
+    grid-template-columns: 100px 1fr 100px;
+    grid-column: 1/-1;
+    grid-template-rows: 50px 300px 50px 300px min-max(50px, 100px) 300px 150px;
+    background-color: #2d3436;
+    background-image: linear-gradient(315deg, #2d3436 0%, #1d1d1d 74%);
+    position: relative;
+    width: 100vw;
+    top: 100vh;
+    height: 100%;
+    // padding-top: 40px;
+    background-color: $clr1;
+    z-index: 10;
+    >h2 {
+        grid-row: 1 span;
+        grid-column: 2;
+        // padding-left: 100px;
+        margin: 10px 0 10px 0;
+        // text-decoration: underline;
+    }
+    .top-picks {
+        grid-row: 1;
+    }
+    .your-picks {
+        grid-row: 3;
+    }
+    .recomended {
+        grid-row: 5;
+    }
+    .top-picks-carousel {
+        grid-row: 2;
+        grid-column: 1/-1;
+    }
+    .your-picks-carousel {
+        grid-row: 4;
+        grid-column: 1/-1;
+    }
+    .recomended-carousel {
+        grid-row: 6;
+        grid-column: 1/-1;
+    }
+    &>* {
+        margin-bottom: 100px
+    }
+}
+
+$base: 0.6rem;
+.hero-arrows.container {
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    display: flex;
+    align-self: stretch;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+    // background-color: green;
+    // height: 100px;
+    // width: 200px;
+    .chevron {
+        position: absolute;
+        width: $base * 10.5;
+        height: $base * 0.7;
+        opacity: 0;
+        // transform: scale(0.3);
+        animation: move-chevron 6s ease-out infinite;
+        top: 80%;
+    }
+    .chevron:first-child {
+        animation: move-chevron 6s ease-out 2s infinite;
+    }
+    .chevron:nth-child(2) {
+        animation: move-chevron 6s ease-out 4s infinite;
+    }
+    .chevron:before,
+    .chevron:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 50%;
+        background: white;
+    }
+    .chevron:before {
+        left: 0;
+        transform: skewY(30deg);
+    }
+    .chevron:after {
+        right: 0;
+        width: 50%;
+        transform: skewY(-30deg);
+    }
+}
+
+@keyframes move-chevron {
+    25% {
+        opacity: 1;
+    }
+    33.3% {
+        opacity: 1;
+        transform: translateY($base * 3.8);
+    }
+    66.6% {
+        opacity: 1;
+        transform: translateY($base * 5.2);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY($base * 8)
+    }
+}
+
+@include for-hero-layout {
+    .scroll-down {
+        display: none;
+    }
+    .hero-arrows.container {
+        display: none;
+    }
+    .station-main {
+        top: 80vh;
+    }
+}
+
+@include for-wider-layout {
+    .station-main {
+        top: 55vw;
+    }
+}
+
+@include for-wide-layout {
+    .home-page .hero-txt {
+        font-size: 6vw;
+        top: 20%
+    }
+}
+
+@include for-normal-layout {
+    .home-page .hero-txt {
+        // font-size: 3rem;
+        top: 15%
+    }
+}
+
+@include for-narrow-layout {
+    .home-page .hero-txt {
+        // font-size: 2.5rem;
+        top: 20%
+    }
+}
+
+@include for-mobile-layout {
+    .home-page .hero-txt {
+        font-size: 2rem;
+        left: 20%
+    }
+    .station-main {
+        top: 46vw;
+    }
+}

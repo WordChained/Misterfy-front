@@ -1,0 +1,55 @@
+// LAYOUT BREAKPOINTS
+$break-mobile: 500px;
+// $break-mobile: 460px;
+$break-narrow: 600px;
+$break-normal: 800px;
+$break-chat: 900px;
+$break-wide: 1080px;
+$break-wider: 1260px;
+$break-hero: 1410px;
+
+@mixin for-mobile-layout {
+  @media (max-width: $break-mobile) {
+    @content;
+  }
+}
+
+@mixin for-narrow-layout {
+  @media (max-width: $break-narrow) {
+    @content;
+  }
+}
+
+@mixin for-normal-layout {
+  @media (max-width: $break-normal) {
+    @content;
+  }
+}
+
+@mixin for-chat-layout {
+  @media (max-width: $break-chat) {
+    @content;
+  }
+}
+
+@mixin for-wide-layout {
+  @media (max-width: $break-wide) {
+    @content;
+  }
+}
+
+@mixin for-wider-layout {
+  @media (max-width: $break-wider) {
+    @content;
+  }
+}
+
+@mixin for-hero-layout {
+  @media (max-width: $break-hero) {
+    @content;
+  }
+}
+
+// @include for-wider-layout{
+// blablabla
+// }

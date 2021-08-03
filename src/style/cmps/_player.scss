@@ -1,0 +1,108 @@
+.player {
+    display: grid;
+    grid-row: 1/-1;
+    grid-column: 2/-1;
+    z-index: 18;
+    position: relative;
+    bottom: 0;
+    // right: 0;
+    width: 100%;
+    --plyr-color-main: gold;
+    // --plyr-audio-control-background-hover: $clr2;
+    // --plyr-audio-range-thumb-active-shadow-color: $clr1;
+    // --plyr-audio-controls-background: $clr4;
+    // .song-info-slider {
+    //     // background-color: rgba(122, 122, 122, 0.534);
+    // }
+    .player-controls {
+        box-shadow: 2px -7px 15px 5px #58584f;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 15px;
+        border: none;
+        outline: none;
+        background-color: darken($clr1, 10%);
+        width: 100%;
+        height: 40px;
+        span {
+            cursor: pointer;
+        }
+        .player-play-btn,
+        .player-pause-btn {
+            position: absolute;
+            z-index: 18;
+            top: 14px;
+            left: calc(50% - 77px);
+            // transform: translate(-50%);
+            filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(183deg) brightness(106%) contrast(102%);
+            &:hover {
+                filter: invert(88%) sepia(27%) saturate(5587%) hue-rotate(1deg) brightness(107%) contrast(105%);
+            }
+        }
+        .player-forward-btn {
+            position: absolute;
+            z-index: 18;
+            top: 23px;
+            left: calc(57% - 65px);
+            filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(183deg) brightness(106%) contrast(102%);
+            &:hover {
+                filter: invert(88%) sepia(27%) saturate(5587%) hue-rotate(1deg) brightness(107%) contrast(105%);
+            }
+        }
+        .player-previous-btn {
+            position: absolute;
+            z-index: 18;
+            top: 23px;
+            right: calc(57% + 52px);
+            transform: rotate(180deg);
+            filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(183deg) brightness(106%) contrast(102%);
+            &:hover {
+                filter: invert(88%) sepia(27%) saturate(5587%) hue-rotate(1deg) brightness(107%) contrast(105%);
+            }
+        }
+    }
+    .plyr {
+        position: relative;
+        right: 0;
+        .plyr__video-wrapper.plyr__video-embed {
+            padding-bottom: 52px !important;
+            width: 100vw;
+            background-color: #252525;
+        }
+        .plyr__tooltip {
+            display: none !important;
+            z-index: 100 !important;
+        }
+        [data-plyr="fullscreen"],
+        [data-plyr="play"],
+        .plyr__control.plyr__control--overlaid,
+        .ytp-cued-thumbnail-overlay,
+        .plyr__poster,
+        iframe {
+            display: none !important;
+        }
+    }
+    .plyr--video.plyr--hide-controls .plyr__controls {
+        opacity: 1 !important;
+        pointer-events: visible !important;
+        transform: translateY(0%) !important;
+    }
+}
+
+.plyr__controls {
+    background-color: darken($clr1, 4%) !important;
+}
+
+@include for-narrow-layout {
+    .plyr--video .plyr__controls {
+        background: #252525 !important;
+    }
+    .player-container .player .player-controls .player-play-btn,
+    .player-container .player .player-controls .player-pause-btn {
+        &:hover {
+            filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(183deg) brightness(106%) contrast(102%);
+        }
+    }
+}
